@@ -22,12 +22,8 @@ export default function(state = initialState,action){
                 statePayload:state.statePayload
             }
         case INCREMENT_SCORE:
-            console.log(action.payload)
             let score = state.statePayload[action.payload].initialValue+1
-            // let score = state.statePayload[action.payload].initialValue++
-            console.log(score)
             state.statePayload[action.payload].initialValue = score
-            console.log(state.statePayload)
             return {
                 ...state,
                 statePayload:state.statePayload

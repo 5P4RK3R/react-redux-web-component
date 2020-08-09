@@ -93,6 +93,7 @@ class People extends HTMLElement {
     constructor() {
         super();
         this._people = [];
+        this.shadow = this.attachShadow({ mode: 'open' });
     }
 
     static get observedAttributes() {
@@ -121,19 +122,20 @@ class People extends HTMLElement {
     }
       connectedCallback() {
         this.render();
-        
+        // storeManager.subscribe()
       }
     
       render() {
         let peopleData= storeManager.getState('peopleReducer', 'componentPayload');
         const {id,children} = peopleData[0]
+        console.log(peopleData)
         const mountPoint = document.createElement('div');
-        this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
-
+        this.shadow.appendChild(mountPoint);
+        
    
     
     ReactDOM.render(<div key={id}>
-                     {children.map((personInfo)=>(<person-card key={personInfo.id} person={JSON.stringify(personInfo)}/>))}</div>, mountPoint);
+                     {children.map((personInfo)=>(<person-card key={personInfo.id} parent={JSON.stringify(this.shadow)} person={JSON.stringify(personInfo)}/>))}</div>, mountPoint);
         
       }
 }
