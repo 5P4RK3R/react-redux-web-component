@@ -135,7 +135,7 @@ class People extends HTMLElement {
    
     
     ReactDOM.render(<div key={id}>
-                     {children.map((personInfo)=>(<person-card key={personInfo.id} parent={JSON.stringify(this.shadow)} person={JSON.stringify(personInfo)}/>))}</div>, mountPoint);
+                     {children.map((personInfo)=>(<person-card key={personInfo.id} person={JSON.stringify(personInfo)}/>))}</div>, mountPoint);
         
       }
 }

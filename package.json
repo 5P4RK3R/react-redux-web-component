@@ -9,7 +9,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "redux": "^4.0.5",
-    "regenerator-runtime": "^0.13.7"
+    "regenerator-runtime": "^0.13.7",
+    "webcomponents-redux": "^2.0.1"
   },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.8",
