@@ -13,6 +13,5 @@ export const fetchPerson = () => async dispatch => {
     storeManager.dispatch({ type: FETCH_PERSON });
 };
 export const increment = (scoreId) => async dispatch => {
-    console.log(scoreId)
     storeManager.dispatch({ type: INCREMENT_SCORE,payload:scoreId });
 };
