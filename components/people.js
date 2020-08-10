@@ -122,13 +122,12 @@ class People extends HTMLElement {
     }
       connectedCallback() {
         this.render();
-        // storeManager.subscribe()
+        // storeManager.subscribe(this.render.bind(this))
       }
     
       render() {
         let peopleData= storeManager.getState('peopleReducer', 'componentPayload');
         const {id,children} = peopleData[0]
-        console.log(peopleData)
         const mountPoint = document.createElement('div');
         this.shadow.appendChild(mountPoint);
         
