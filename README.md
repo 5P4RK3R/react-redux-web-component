@@ -5,5 +5,5 @@ web component with react and redux
     Run this command:
     yarn global add parcel-bundler
 
-### `parcel index.html`
+### `yarn dev`
     runs the app in your local

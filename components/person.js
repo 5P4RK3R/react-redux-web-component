@@ -4,18 +4,18 @@ import storeManager from '../redux/storeManager';
 import {INCREMENT_SCORE} from '../redux/actions/types'
 import {connect} from 'webcomponents-redux'
 class Person extends HTMLElement {
-    constructor() {
+    constructor() { // Initialize state
         super();
         this._person = {}
         this._personScore={}
        this.shadow = this.attachShadow({ mode: 'closed' });
     }
 
-    static get observedAttributes() {
+    static get observedAttributes() { // Observe state Changes
         return ['person','personScore'];
     }
 
-    attributeChangedCallback(attrName, oldVal, newVal) {
+    attributeChangedCallback(attrName, oldVal, newVal) {  // Handler of state with Timeline
        
         switch(attrName){
             case 'personScore':
@@ -102,5 +102,5 @@ class Person extends HTMLElement {
             }
 }
 connect(Person,storeManager.getStore()); // Connect the Web component and Redux Store
-customElements.define('person-card', Person);
+customElements.define('person-card', Person); // Register your Custom web component
 export default Person;

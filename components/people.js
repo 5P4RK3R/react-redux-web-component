@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom'
 import storeManager from '../redux/storeManager'
 import Person from './person'
 class People extends HTMLElement {
-    constructor() {
+    constructor() { // Initialize state
         super();
         this._people = [];
-        this.shadow = this.attachShadow({ mode: 'closed' });
+        this.shadow = this.attachShadow({ mode: 'closed' }); // Encapsulation of elements and styles
     }
 
-    static get observedAttributes() {
+    static get observedAttributes() { // Observe state Changes
         return ['people'];
     }
 
-    attributeChangedCallback(attrName, oldVal, newVal) {
+    attributeChangedCallback(attrName, oldVal, newVal) { // Handler of state with Timeline
         switch(attrName){
             case 'people':
                 this._people = newVal
@@ -48,5 +48,5 @@ class People extends HTMLElement {
       }
 }
 
-customElements.define('people-info', People);
+customElements.define('people-info', People); // Register your Custom web component
 export default People;
