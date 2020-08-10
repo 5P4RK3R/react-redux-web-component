@@ -8,7 +8,7 @@ class Person extends HTMLElement {
         super();
         this._person = {}
         this._personScore={}
-       this.shadow = this.attachShadow({ mode: 'closed' });
+       this.shadow = this.attachShadow({ mode: 'closed' }); // Encapsulation of elements and style
     }
 
     static get observedAttributes() { // Observe state Changes
@@ -62,7 +62,7 @@ class Person extends HTMLElement {
         }
     }
     
-    connectedCallback(){
+    connectedCallback(){ // 
       
         let personInfo = storeManager.getState('peopleReducer','statePayload')
         const person = this.getAttribute('person')
